@@ -19,7 +19,7 @@ export default function RelativeList({videoId}) {
     <div className={relativeList.wrapper}>
       {
         data.items.map((item) => (
-          <RelativeItem key={item.id.videoId} snippet={item.snippet} onClick={() => onClickDetail(item.snippet.channelId)}/>
+          <RelativeItem key={item.id.videoId} snippet={item.snippet} />
         ))}
     </div>
   );
