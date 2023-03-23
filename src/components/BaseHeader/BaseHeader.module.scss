@@ -1,3 +1,52 @@
-.base-header-wrapper {
-  height: 70px;
+.wrapper {
+  display: flex;
+  align-items: center;
+  max-width: 2000px;
+  width: 100%;
+  height: 56px;
+  margin: 0 20px;
+
+  svg {
+    height: 20px;
+  }
+
+  img {
+    height: 70px;
+  }
+
+  form {
+    display: flex;
+    margin: 0 auto;
+  }
+
+  input {
+    box-sizing: border-box;
+    height: 40px;
+    width: 300px;
+    padding-left: 20px;
+    background: #121212;
+    border: 1px solid #4d4d4d;
+    color: white;
+    border-top-left-radius: 18px;
+    border-bottom-left-radius: 20px;
+  }
+
+  button {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 60px;
+    background: #222222;
+    border: 1px solid #4d4d4d;
+    border-left: none;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+    svg {
+      font-size: 18px;
+      color: white;
+    }
+  }
+
 }
