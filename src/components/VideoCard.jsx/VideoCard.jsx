@@ -1,13 +1,13 @@
 import React from 'react';
-import videoItem from './HotTrendItem.module.scss'
+import videoCard from './VideoCard.module.scss'
 
-export default function VideoCard({snippet}) {
+export default function VideoCard({video}) {
   return (
-    <div className={videoItem.wrapper}>
-      <img src={snippet.thumbnails.medium.url} alt="thumbnail"/>
-      <div className={videoItem.title}>{snippet.title}</div>
-      <div className={videoItem.channelTitle}>{snippet.channelTitle}</div>
-      <div className={videoItem.date}>{snippet.publishedAt}</div>
+    <div className={videoCard.wrapper}>
+      <img src={video.thumbnails.medium.url} alt="thumbnail"/>
+      <div className={videoCard.title}>{video.title}</div>
+      <div className={videoCard.channelTitle}>{video.channelTitle}</div>
+      <div className={videoCard.date}>{video.publishedAt}</div>
     </div>
   );
 }

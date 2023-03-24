@@ -1,28 +1,24 @@
 import React from 'react';
 import {useParams} from "react-router-dom";
 import {useQuery} from "@tanstack/react-query";
+import VideoCard from "../components/VideoCard.jsx/VideoCard";
+import videoList from './VideoList.module.scss'
+import {hotTrend, search} from "../api/youtube";
 
 function Videos(props) {
-  const { keyword } = useParams();
+  const {keyword} = useParams();
 
   const {isLoading, error, data: videos} = useQuery(
     ['videos', keyword],
-    async () => {
-      return fetch(
-        `/data/
-        ${ keyword ? 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q='+keyword+'&key=AIzaSyCYcSYz8l4GfKcwQjFaKPMfzcxLtkSc2T4' : 
-        'https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&key=AIzaSyCYcSYz8l4GfKcwQjFaKPMfzcxLtkSc2T4'}`
-      )
-        .then((res) => res.json())
-        .then((data) => data.items);
-    });
+    () => keyword ? search(keyword) : hotTrend()
+  );
 
 
   return (
-    <div>
+    <div className={videoList.wrapper}>
       {isLoading && <p>Loading...</p>}
-      {error && <p>Something is wrong 😖</p>}
-      {videos?.map((item, index) => <div key={index}>{item.snippet.title}</div>)}
+      {error && <p>Something is wrong</p>}
+      {videos?.map((item, index) => <VideoCard key={index} video={item.snippet}/>)}
     </div>
   );
 }
