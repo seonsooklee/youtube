@@ -1,7 +1,7 @@
 import React from 'react';
 import videoItem from './HotTrendItem.module.scss'
 
-export default function HotTrendItem({snippet}) {
+export default function VideoCard({snippet}) {
   return (
     <div className={videoItem.wrapper}>
       <img src={snippet.thumbnails.medium.url} alt="thumbnail"/>

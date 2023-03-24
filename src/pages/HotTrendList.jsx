@@ -1,5 +1,5 @@
 import React from 'react';
-import HotTrendItem from "../components/HotTrend/HotTrendItem";
+import VideoCard from "../components/VideoCard.jsx/VideoCard";
 import {useQuery} from "@tanstack/react-query";
 import videoList from './HotTrendList.module.scss'
 import {useNavigate} from "react-router-dom";
@@ -25,7 +25,7 @@ export default function HotTrendList(props) {
   return (
     <div className={videoList.wrapper}>
       {hotTrend.items.map((item) => (
-        <HotTrendItem key={item.id} id={item.id} snippet={item.snippet}/>
+        <VideoCard key={item.id} id={item.id} snippet={item.snippet}/>
       ))}
     </div>
   );

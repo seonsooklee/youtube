@@ -1,26 +1,30 @@
 import {createBrowserRouter} from "react-router-dom";
-import Root from "../pages/Root";
-import HotTrendList from "../pages/HotTrendList";
-import SearchResultList from "../pages/SearchResultList";
-import DetailList from "../pages/DetailList";
+import App from "../App";
+import Videos from "../pages/Videos";
+import VideoDetail from "../pages/VideoDetail";
+import NotFound from "../pages/NotFound";
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <Root />,
-    // errorElement: 만들어야 함,
+    element: <App />,
+    errorElement: <NotFound />,
     children: [
       {
         index: true,
-        element: <HotTrendList />
+        element: <Videos />
       },
       {
-        path: 'detail',
-        element: <DetailList />
+        path: 'videos',
+        element: <Videos />
       },
       {
-        path: 'search',
-        element: <SearchResultList />
+        path: 'videos/:keyword',
+        element: <Videos />
+      },
+      {
+        path:'videos/watch/:VideoId',
+        element: <VideoDetail />
       }
     ]
   }
