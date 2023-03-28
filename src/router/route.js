@@ -23,7 +23,7 @@ export const router = createBrowserRouter([
         element: <Videos />
       },
       {
-        path:'videos/watch/:VideoId',
+        path:'videos/watch/:videoId',
         element: <VideoDetail />
       }
     ]

@@ -2,16 +2,15 @@ import axios from "axios";
 
 const httpClient = axios.create({
   baseURL: 'https://youtube.googleapis.com/youtube/v3/',
-  params: {key: process.env.REACT_APP_YOUTUBE_API_KEY}
+  params: {key: process.env.REACT_APP_YOUTUBE_API_KEY, part: 'snippet'}
 })
 
 export const search = async (keyword) => {
   return httpClient
-    .get('search',{
+    .get('search', {
       params: {
-        part: 'snippet',
         maxResults: 25,
-        q: 'surfing',
+        q: keyword,
       }
     })
     .then(res => res.data.items)
@@ -22,12 +21,23 @@ export const hotTrend = async () => {
   return httpClient
     .get('videos', {
       params: {
-        part: 'snippet',
         chart: 'mostPopular',
         maxResults: 25
       }
     })
     .then(res => res.data.items)
     .catch(error => console.log(error))
+}
+
+export const related = async (id) => {
+  return httpClient
+    .get('search', {
+      params: {
+        relatedToVideoId: 'Ks-_Mh1QhMc',
+        type: 'video'
+      }
+    })
+    .then(res => res.data.items)
+    .catch(error=> console.log(error))
 }
 
