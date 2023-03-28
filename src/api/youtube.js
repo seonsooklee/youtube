@@ -14,6 +14,7 @@ export const search = async (keyword) => {
       }
     })
     .then(res => res.data.items)
+    .then(data => data.map(item => ({...item, id: item.id.videoId})))
     .catch(error => console.log(error))
 }
 
