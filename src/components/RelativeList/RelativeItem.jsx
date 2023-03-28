@@ -1,10 +1,10 @@
 import React from 'react';
 import relativeItem from './RelativeItem.module.scss'
 import {formatAgo} from "../../util/dateAgo";
-export default function RelativeItem({video, onClick}) {
+export default function RelativeItem({video}) {
   const { thumbnails, title, channelTitle, publishedAt } = video.snippet;
   return (
-    <div className={relativeItem.wrapper} onClick={onClick}>
+    <div className={relativeItem.wrapper}>
       <img src={thumbnails.medium.url} alt={title}/>
       <div className={relativeItem.descriptionWrapper}>
         <div className={relativeItem.title}>{title}</div>

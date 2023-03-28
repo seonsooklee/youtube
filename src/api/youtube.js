@@ -33,7 +33,7 @@ export const related = async (id) => {
   return httpClient
     .get('search', {
       params: {
-        relatedToVideoId: 'Ks-_Mh1QhMc',
+        relatedToVideoId: id,
         type: 'video'
       }
     })
