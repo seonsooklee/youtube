@@ -12,7 +12,7 @@ function VideoDetail() {
 
   const {data: relatedVideo} = useQuery(
     ['related', videoId],
-    () => related(videoId)
+    () => related(videoId), {staleTime: 1000 * 60 * 5}
   );
 
   return (
@@ -23,7 +23,7 @@ function VideoDetail() {
           title={title}
           width="640"
           height="360"
-          src={`http://www.youtube.com/embed/${video.id}`}/>
+          src={`https://www.youtube.com/embed/${video.id}`}/>
         <div>
           <div className={videoDetail.title}>{title}</div>
           <div className={videoDetail.channelWrapper}>
